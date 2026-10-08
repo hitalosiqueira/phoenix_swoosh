@@ -14,9 +14,12 @@ defmodule PhoenixSwoosh.Mixfile do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),
-      docs: docs(),
-      preferred_cli_env: [docs: :docs]
+      docs: docs()
     ]
+  end
+
+  def cli do
+    [preferred_envs: [docs: :docs]]
   end
 
   def application do
@@ -28,7 +31,7 @@ defmodule PhoenixSwoosh.Mixfile do
       {:swoosh, "~> 1.5"},
       {:phoenix_view, "~> 1.0 or ~> 2.0"},
       {:phoenix_html, "~> 3.0 or ~> 4.0", optional: true},
-      {:hackney, "~> 1.10", optional: true},
+      {:hackney, "~> 4.0", optional: true},
       {:finch, "~> 0.8", optional: true},
       {:phoenix, "~> 1.8", optional: true},
       {:credo, "~> 1.0", only: [:dev, :test]},
